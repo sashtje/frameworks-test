@@ -66,3 +66,11 @@ hr {
     gap: 30px;
     align-items: center;
 }
+
+.primary {
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue App</title>
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" v-cloak>
+<!--    <div v-html="myHtml"></div>-->
+<!--    <h2 v-text="title"></h2>-->
+<!--    <h2 v-once>{{ title }}</h2>-->
+<!--    <h2 v-pre>{{ title }}</h2>-->
+
+<!--    <button @click="title = 'New title'">Change</button>-->
+
+    <div v-html="myHtml"></div>
+
+    <div>
+      <input type="text" @keyup.shift.enter="addItem" ref="noteInput">
+    </div>
+
+    <ul v-if="items.length">
+<!--      <li v-for="item in 7">{{ item }}</li>-->
+<!--      <li v-for="(value, key) in user"><strong>{{ key }}:</strong> {{ value }}</li>-->
+
+<!--      <li-->
+<!--        v-for="(item, index) in evenItems"-->
+<!--        @click="items.splice(index, 1)"-->
+<!--        :key="item"-->
+<!--      >-->
+
+      <li
+        v-for="(item, index) in items"
+        @click="items.splice(index, 1), log(item)"
+        :key="item"
+      >{{ item }}
+
+<!--        <input type="text" @click="stopPropagation">-->
+        <input type="text" @click.stop>
+      </li>
+    </ul>
+
+    <h3 v-show="items.length === 0">No items</h3>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+</html>

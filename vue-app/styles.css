@@ -10,15 +10,26 @@ body {
     box-sizing: inherit;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
 .card {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     height: 100vh;
-    justify-content: center;
     align-items: center;
     gap: 20px;
 }
@@ -30,8 +41,7 @@ h1 {
 
 .btn {
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    padding: 10px 20px;
     border: 1px solid #885a06;
     outline: none;
     background-color: #a4a416;
@@ -43,4 +53,16 @@ h1 {
 
 .btn:hover {
     background-color: #ecec0a;
+}
+
+hr {
+    width: 100%;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
 }

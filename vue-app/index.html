@@ -12,12 +12,26 @@
 <body>
   <div class="container" id="root">
     <div class="card">
-      <h1>{{ title }}: {{ counter }}</h1>
+      <h1>{{ title }}</h1>
 
-      <div class="controls">
-        <button class="btn plus" v-on:click="counter++">+</button>
-        <button class="btn minus" v-on:click="counter--">-</button>
+      <div class="form">
+        <input type="text" v-bind:placeholder="placeholderString" v-bind:value="inputValue" v-on:input="inputChangeHandler" v-on:keypress.enter="addNote"
+        />
       </div>
+
+      <button class="btn" v-on:click="addNote">Add</button>
+
+      <hr />
+
+      <ul class="list" v-if="notes.length !== 0">
+        <li class="list-item" v-for="(myNote, index) in notes">
+          {{ myNote }}
+
+          <button class="btn delete" v-on:click="deleteNote(index)">Delete</button>
+        </li>
+      </ul>
+
+      <div v-else="notes.length === 0">No notes</div>
     </div>
   </div>
 
